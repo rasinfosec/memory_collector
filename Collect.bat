@@ -21,6 +21,8 @@ IF NOT EXIST "%elevate%" goto :failed
 IF NOT EXIST "%audit%" goto :failed
 IF NOT EXIST "%sys%" goto :failed
 
+IF NOT EXIST "%output%" mkdir .\output
+
 For /f "tokens=2 delims=[]" %%G in ('ver') Do (set _version=%%G) 
 For /f "tokens=2,3,4 delims=. " %%G in ('echo %_version%') Do (set _major=%%G& set _minor=%%H& set _build=%%I) 
 Echo Major version: %_major%  Minor Version: %_minor%.%_build%
